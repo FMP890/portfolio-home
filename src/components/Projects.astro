@@ -1,0 +1,103 @@
+---
+import LinkButton from "./LinkButton.astro"
+import Html from "./icons/Html.astro";
+import Css from "./icons/Css.astro";
+import Js from "./icons/Js.astro";
+import Astro from "./icons/IconAstro.astro";
+import Ionic from "./icons/Ionic.astro";
+import Github from "./icons/Github.astro";
+import Badge from "./Badge.astro";
+
+const TAGS = {
+  HTML: {
+    name: "HTML",
+    class: "bg-yellow-800 text-white",
+    icon: Html,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-blue-800 text-white",
+    icon: Css,
+  },
+  JS: {
+    name: "JavaScript",
+    class: "bg-black text-yellow-200/70",
+    icon: Js,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-black text-white",
+    icon: Astro,
+  },
+  IONIC: {
+    name: "Ionic",
+    class: "bg-white text-blue-500",
+    icon: Ionic,
+  },
+};
+const PROJECTS = [
+  {
+    title: "Coin-Flip - A coin flip game",
+    description:
+      "Experience the excitement of a coin flip right in your browser with this interactive Coin Flip Simulation!",
+    github: "https://github.com/Maydik890/Coin-Flip",
+    image: "/projects/coin-flip.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS],
+  },
+  {
+    title: "Census App",
+    description:
+      "Embark on a modern approach to data collection and management with this innovative Census Application, developed using the Ionic Framework.",
+    github: "https://github.com/Maydik890/App-Censo",
+    image: "/projects/censo.webp",
+    tags: [TAGS.JS, TAGS.IONIC],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-6">
+  {
+    PROJECTS.map(({ image, title, description, tags, github }) => (
+      <article class="flex flex-col group md:flex-row ">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              class="rounded shadow-2xl shadow-white/10"
+              src={image}
+              alt={`Captura del proyecto ${image}`}
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 md:max-w-lg ml-6">
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row gap-x-2 mb-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              <LinkButton href={github}>
+                <Github class="size-5" />
+                Code
+              </LinkButton>
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

@@ -1,0 +1,32 @@
+---
+import StudiesItem from "./StudiesItem.astro";
+const STUDIES = [
+  {
+    date: "Currently",
+    title: "Information Technology Analyst in ORT University",
+  },
+  {
+    date: "2021",
+    title:
+      "Curso de introducción al desarrollo web: HTML y CSS (1/2) from google",
+  },
+  {
+    date: "from 2015 to 2018",
+    title: "Engineering high school at IDAP",
+  },
+  {
+    date: "from 2012 to 2015",
+    title: "High school at IDAP",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    STUDIES.map((study) => (
+      <li class="mb-10 ms-4">
+        <StudiesItem {...study} />
+      </li>
+    ))
+  }
+</ol>
