@@ -6,6 +6,10 @@ import Js from "./icons/Js.astro";
 import Astro from "./icons/IconAstro.astro";
 import Ionic from "./icons/Ionic.astro";
 import Github from "./icons/Github.astro";
+import Link from "./icons/Link.astro";
+import C from "./icons/C.astro";
+import Net from "./icons/Net.astro";
+import Bt from "./icons/Boostrap.astro";
 import Badge from "./Badge.astro";
 
 const TAGS = {
@@ -34,6 +38,21 @@ const TAGS = {
     class: "bg-white text-blue-500",
     icon: Ionic,
   },
+  C: {
+    name: "C#",
+    class: "bg-purple-700 text-white",
+    icon: C,
+  },
+  BT: {
+    name: "Bootstrap",
+    class: "bg-black text-white",
+    icon: Bt,
+  },
+  NET: {
+    name: ".NET",
+    class: "bg-white text-black",
+    icon: Net,
+  },
 };
 const PROJECTS = [
   {
@@ -45,10 +64,18 @@ const PROJECTS = [
     tags: [TAGS.JS, TAGS.IONIC],
   },
   {
+    title: "",
+    description: "",
+    github: "https://github.com/Maydik890/ObligatorioP2",
+    link: "http://fm249404.somee.com/",
+    image: "/projects/ganado-gestion.webp",
+    tags: [TAGS.C, TAGS.NET, TAGS.BT],
+  },
+  {
     title: "Import Cargo Management",
     description:
       "A project web app for manage the imports for different companies, developed using only vanilla javascript and html.",
-    github: "Import Cargo Management",
+    github: "https://github.com/Maydik890/Pruebas-Obligatorio",
     image: "/projects/cargo.webp",
     tags: [TAGS.JS, TAGS.HTML],
   },
@@ -65,7 +92,7 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-6">
   {
-    PROJECTS.map(({ image, title, description, tags, github }) => (
+    PROJECTS.map(({ image, title, description, tags, github, link }) => (
       <article class="flex flex-col group md:flex-row ">
         <div class="w-full md:w-1/2">
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -101,6 +128,10 @@ const PROJECTS = [
               <LinkButton href={github}>
                 <Github class="size-5" />
                 Code
+              </LinkButton>
+              <LinkButton href={link}>
+                <Link class="size-5" />
+                Link
               </LinkButton>
             </footer>
           </div>
