@@ -129,10 +129,12 @@ const PROJECTS = [
                 <Github class="size-5" />
                 Code
               </LinkButton>
-              <LinkButton href={link}>
-                <Link class="size-5" />
-                Link
-              </LinkButton>
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-5" />
+                  Link
+                </LinkButton>
+              )}
             </footer>
           </div>
         </div>
